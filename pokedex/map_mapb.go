@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-func callbackMap(c *Config) error {
+func callbackMap(c *Config, args ...string) error {
 
 	resp, err := c.pokeapiclient.ListLocationAreas(c.nextLocationURL)
 	if err != nil {
@@ -23,7 +23,7 @@ func callbackMap(c *Config) error {
 	return nil
 }
 
-func callbackMapb(c *Config) error {
+func callbackMapb(c *Config, args ...string) error {
 	if c.prevLocationURL == nil {
 		return errors.New("you are on the first page !")
 	}

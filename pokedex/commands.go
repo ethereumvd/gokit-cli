@@ -10,7 +10,7 @@ import (
 type Command struct {
 	name        string
 	description string
-	callback    func(*Config) error
+	callback    func(*Config, ...string) error
 }
 
 func getCommands() map[string]Command {
@@ -34,6 +34,26 @@ func getCommands() map[string]Command {
 			name:        "mapb",
 			description: "List location areas one url back",
 			callback:    callbackMapb,
+		},
+		"explore": {
+			name:        "explore <location_area>",
+			description: "Lists out Pokemons in a specified area",
+			callback:    callbackExplore,
+		},
+		"catch": {
+			name:        "catch <pokemon_name>",
+			description: "Attempts to catch a specified Pokemon",
+			callback:    callbackCatch,
+		},
+		"inspect" : {
+			name: "inspect <pokemon_name>",
+			description: "Shows data about Caught Pokemons",
+			callback: callbackInspect,
+		},
+		"pokedex" : {
+			name: "pokedex",
+			description: "Shows List of Caught Pokemons",
+			callback: callbackPokedex,
 		},
 	}
 }
@@ -59,6 +79,10 @@ func StartCLI(cfg *Config) {
 		}
 
 		primaryArg := args[0]
+		otherArgs := []string{}
+		if len(args) > 1 {
+			otherArgs = args[1:]
+		}
 
 		availableCommands := getCommands()
 		command, ok := availableCommands[primaryArg]
@@ -69,10 +93,9 @@ func StartCLI(cfg *Config) {
 			continue
 		}
 
-		err := command.callback(cfg)
+		err := command.callback(cfg, otherArgs...)
 		if err != nil {
 			fmt.Println(err)
 		}
 	}
-
 }
