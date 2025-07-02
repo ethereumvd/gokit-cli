@@ -63,9 +63,9 @@ gokit-cli/
 
 ## 🔗 Related Readmes
 
-- 🎮 [Pokedex CLI](https://github.com/ethereumvd/gokit-cli/pokedex.md)
+- 🎮 [Pokedex CLI](https://github.com/ethereumvd/gokit-cli/blob/main/pokedex.md)
 
-- 🧾 [Todo CLI](https://github.com/ethereumvd/gokit-cli/todo.md)
+- 🧾 [Todo CLI](https://github.com/ethereumvd/gokit-cli/blob/main/todo.md)
 
-- ☀️ [Weather CLI](https://github.com/ethereumvd/gokit-cli/weather.md)
+- ☀️ [Weather CLI](https://github.com/ethereumvd/gokit-cli/blob/main/weather.md)
 
